@@ -1,0 +1,1256 @@
+@import "variables";
+@import "Mixins";
+
+*, a, a:hover {
+  text-decoration: none;
+}
+
+::selection {
+  color: $colorWhite;
+  @include backgroundColor(#8d1a17);
+}
+
+@include fontFace("../fonts/IranSans", "IRANSansWeb_Black", IRANSans, normal, 900);
+@include fontFace("../fonts/IranSans", "IRANSansWeb_Bold", IRANSans, normal, 700);
+@include fontFace("../fonts/IranSans", "IRANSansWeb_Medium", IRANSans, normal, 500);
+@include fontFace("../fonts/IranSans", "IRANSansWeb", IRANSans, normal, 400);
+@include fontFace("../fonts/IranSans", "IRANSansWeb_Light", IRANSans, normal, 300);
+@include fontFace("../fonts/IranSans", "IRANSansWeb_UltraLight", IRANSans, normal, 200);
+
+*, ::after, ::before {
+  box-sizing: border-box
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-family: IRANSans, $DefaultFonts;
+}
+
+.Icons:before, .Login .input-five small:after {
+  font-family: Icons, $DefaultFonts;
+}
+
+.row::after, .row::before {
+  content: "";
+  display: table;
+}
+
+.Call li a, .Cart li > span, .DisplayInBlock, .Images, .Login, .VMiddle {
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: $color_a6a6a6
+}
+
+a, a:hover {
+  color: $colorBlack
+}
+
+.HoverRed:hover {
+  color: $color_a61d17;
+}
+
+.HoverWhite:hover, .TextWhite {
+  color: $colorWhite;
+}
+
+.WidthAll {
+  width: 100%;
+}
+
+.Left {
+  float: left
+}
+
+.Right {
+  float: right
+}
+
+.VMiddle {
+  vertical-align: middle
+}
+
+.NoSelect {
+  user-select: none;
+  cursor: default
+}
+
+.white {
+  background-color: $colorWhite
+}
+
+.TextCenter {
+  text-align: center
+}
+
+.Rtl {
+  text-align: right
+}
+
+.Ltr, .TextItem span {
+  text-align: left
+}
+
+.Transition {
+  transition: all .3s ease
+}
+
+.Images {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover
+}
+
+.ImageHover {
+  overflow: hidden;
+}
+
+.ImageHover .Images {
+  @include transform(rotate(-10deg) scale(1.5));
+}
+
+.ImageHover:hover .Images {
+  @include transform(rotate(0deg) scale(1));
+}
+
+.ContactUs form, .Login .input-five small, .LoginSignUp {
+  @include transform(translate(0, -50%));
+}
+
+.GreenWhite {
+  background-color: $color_ebf4e4;
+}
+
+.TextGreen {
+  color: $color_75a948;
+}
+
+.Gray {
+  background-color: $color_f5f5f5;
+}
+
+.TextGrayBlack {
+  color: $color_424142;
+}
+
+.TextBlack {
+  color: $colorBlack;
+}
+
+.btn-twentythreeParent {
+  @include padding(0 15px);
+}
+
+.btn-twentythree:hover span {
+  box-shadow: none;
+  @include transition(all .3s ease);
+}
+
+.btn-twentythree {
+  position: relative;
+  @include padding(8px 0);
+  background-color: $color_580704;
+  border-radius: 0;
+}
+
+.btn-twentythree span {
+  z-index: 1;
+  color: $colorWhite;
+  position: static;
+  @include padding(0 8px);
+}
+
+.btn-twentythree:before, .btn-twentythree:after, .btn-twentythree span:before, .btn-twentythree span:after {
+  @include Before;
+  height: 3px;
+  width: 0;
+  background-color: $color_db2727;
+  @include transition(all .2s ease);
+}
+
+.btn-twentythree span:before, .btn-twentythree span:after {
+  width: 3px;
+  height: 0;
+}
+
+.btn-twentythree:hover span:before, .btn-twentythree:hover span:after {
+  height: calc(100% + 2px);
+}
+
+.btn-twentythree:before, .btn-twentythree span:before {
+  top: -1px;
+  right: -1px;
+}
+
+.btn-twentythree:after, .btn-twentythree span:after {
+  bottom: -1px;
+  left: -1px;
+}
+
+.btn-twentythree:hover:before, .btn-twentythree:hover:after {
+  width: calc(100% + 2px);
+}
+
+.input-five {
+  @include padding(0 10px);
+  position: relative;
+  background-color: $colorWhite;
+  overflow: hidden;
+}
+
+.input-five .Focusing:focus ~ span i, .input-five .Focusing:focus ~ span:after, .input-five .Focusing:focus ~ span:before, .input-five span i, .input-five span:after, .input-five span:before {
+  @include transition(all .3s ease);
+}
+
+.input-five .Focusing {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  outline: 0;
+  width: 100%;
+  @include padding(22px 0);
+  @include transition(all .3s);
+  height: 3rem;
+  font-size: 18px;
+}
+
+.input-fiveTextArea {
+  margin: 15px 0;
+}
+
+.input-five {
+  textarea.Focusing {
+    height: 8rem;
+    @include padding(10px);
+    min-height: 140px;
+    resize: vertical;
+    max-height: 281px;
+  }
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid $color_a6a6a6;
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: $color_9f1613;
+    }
+    i {
+      position: absolute;
+      width: 2px;
+      height: 0;
+      background-color: $color_9f1613;
+    }
+    i:first-child {
+      top: -2px;
+      left: -2px;
+      transition-delay: 1.2s
+    }
+    i:last-child {
+      bottom: -2px;
+      right: -2px;
+      transition-delay: .6s
+    }
+    &:before {
+      left: 0;
+      bottom: -2px;
+      transition-delay: .9s
+    }
+    &:after {
+      right: 0;
+      transition-delay: .3s;
+      top: -2px
+    }
+  }
+  .Focusing {
+    &:focus {
+      ~ span:before, ~ span:after, ~ small:after {
+        width: 100%
+      }
+      ~ span:before {
+        transition-delay: .3s
+      }
+      ~ span i:last-child {
+        transition-delay: .6s
+      }
+      ~ span:after {
+        transition-delay: .9s
+      }
+      ~ span i {
+        height: 110%
+      }
+    }
+  }
+}
+
+@font-face {
+  font-family: Icons;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Icons.woff) format('woff')
+}
+
+.Icons:before {
+  font-style: normal;
+  font-weight: 400
+}
+
+.Icon-Instagram:before {
+  content: "\F101"
+}
+
+.Icon-FaceBook:before {
+  content: "\F102"
+}
+
+.Icon-GooglePlus:before {
+  content: "\F103"
+}
+
+.Icon-Twitter:before {
+  content: "\F104"
+}
+
+.Icon-Telegram:before {
+  content: "\F105"
+}
+
+.Icon-Human:before {
+  content: "\F106"
+}
+
+.Icon-Key:before {
+  content: "\F107"
+}
+
+.Icon-Food:before {
+  content: "\F108"
+}
+
+.Icon-Email:before {
+  content: "\F109"
+}
+
+.Icon-Call:before {
+  content: "\F110"
+}
+
+.Icon-Map:before {
+  content: "\F111"
+}
+
+.Icon-Dish:before {
+  content: "\F112"
+}
+
+.Icon-Dizi:before {
+  content: "\F113"
+}
+
+.Icon-RePassword:before {
+  content: "\F114"
+}
+
+.Icon-Shop:before {
+  content: "\F115"
+}
+
+.backGroundSite {
+  background: url(../image/Body.jpg) center no-repeat fixed $color_a61d17;
+  background-size: cover
+}
+
+header {
+  height: 99px;
+  @include MediaQuery(S) {
+    height: 77px;
+  }
+  .container {
+    position: fixed;
+    width: 100%;
+    padding: 10px 20px;
+    top: 0;
+    border-bottom: 1px solid $color_a61d17;
+    z-index: 5;
+    background-image: url(../image/BackGroundheader.jpg);
+    .Logo {
+      height: 78px;
+      width: 60px;
+      margin: auto;
+      display: block;
+      float: none;
+      @include MediaQuery(S) {
+        margin: auto;
+        display: block;
+        float: right;
+        height: 56px;
+        width: 44px;
+      }
+    }
+  }
+}
+
+.Logo {
+  height: 122px;
+  width: 95px
+}
+
+.LoginSignUp {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  a {
+    color: $colorBlack;
+    background-color: $color_a61d17;
+  }
+}
+
+.Language {
+  position: fixed;
+  top: 50%;
+  left: -70px;
+  background-color: $color_a61d17;
+  cursor: pointer;
+  @include transform(translate(0, -50%));
+  @include transition(all .5s ease);
+  z-index: 5;
+  &:hover {
+    left: 0;
+  }
+  a {
+    @include padding(10px);
+    float: right;
+    color: $colorWhite;
+    &:hover {
+      background-color: $color_d5241d;
+    }
+  }
+  i {
+    @include padding(8px);
+    color: #fff;
+  }
+
+}
+
+.LoginSignUp a span:first-child, .Language a:first-child {
+  border-left: 2px solid $colorWhite;
+  padding-left: 10px;
+  margin-left: 0;
+}
+
+.LoginSignUp a.btn-twentythree:before, .LoginSignUp a.btn-twentythree:after, .LoginSignUp a.btn-twentythree span:before, .LoginSignUp a.btn-twentythree span:after {
+  background-color: $color_f02828;
+}
+
+.main {
+  @include padding(20px 0);
+  @include MediaQuery(S) {
+    @include padding(20px 16px);
+  }
+  .row {
+    @include padding(10px);
+    border-radius: 15px
+  }
+}
+
+.Slider {
+  position: relative;
+  @include MediaQuery(M) {
+    width: auto;
+    margin: 0 -44px;
+  }
+  @include MediaQuery(S) {
+    width: auto;
+    margin: 0 -25px;
+  }
+  ul li {
+    margin-bottom: 30px;
+  }
+}
+
+.CartTitle, .MainHeader {
+  border-bottom: 1px solid $color_a61d17;
+  padding-bottom: 10px;
+  padding-left: 20px
+}
+
+.Grouping {
+  padding-right: 25px;
+  margin: 15px 0;
+  border-bottom: 1px solid $color_470b0a;
+  @include MediaQuery(M) {
+    padding-left: 25px
+  }
+  ul li > div {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 3px 3px 8px 0 $color_ccc;
+  }
+}
+
+.ImgItems {
+  height: 90px;
+  @include padding(0);
+  @include MediaQuery(M) {
+    height: 16vw;
+  }
+  @include MediaQuery(Ms) {
+    width: 50%
+  }
+  @include MediaQuery(S) {
+    height: 28vw;
+  }
+}
+
+.GroupingTitle {
+  padding: 0;
+  position: sticky;
+  top: 124px;
+  margin-top: 0;
+  transition: all .5s ease;
+  background-image: url(../image/Body.jpg);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 25px;
+  @include MediaQuery(M) {
+    padding-bottom: 20px;
+    position: relative;
+    top: 0;
+    color: $colorBlack;
+  }
+  &:before {
+    margin-left: 10px;
+    font-size: 25px;
+    color: $color_921916;
+  }
+}
+
+.AddToCart {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background-color: $color_6e1310;
+  color: $colorWhite;
+  position: absolute;
+  top: -16px;
+  border-radius: 100%;
+  cursor: pointer;
+  @include MediaQuery(Ms) {
+    top: 10px;
+    left: 10px;
+    font-size: 25px;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    @include padding(0);
+  }
+  i {
+    @include MediaQuery(Ms) {
+      font-size: 22px;
+    }
+  }
+  &:hover {
+    background-color: $color_9e1915;
+  }
+}
+
+.TextItem {
+  padding: 10px;
+  word-break: break-all;
+  position: relative;
+  background-color: $color_f3f5f3;
+  direction: ltr;
+  @include MediaQuery(Ms) {
+    width: 50%;
+    height: 28vw;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    @include MediaQuery(S) {
+      font-size: 15px;
+      margin-top: 3px;
+    }
+  }
+  p {
+    margin-bottom: 30px;
+    word-spacing: -3px;
+    @include MediaQuery(S) {
+      height: 82px;
+      overflow: hidden;
+    }
+  }
+  span {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    word-break: break-all;
+    left: 10px;
+    @include padding(10px 0);
+  }
+  p, h3 a {
+    word-break: keep-all
+  }
+}
+
+.Cart {
+  position: sticky;
+  top: 100px;
+  margin-bottom: 60px;
+  li {
+    margin: 5px 0;
+    > span {
+      width: 88px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.CartPage {
+  .Cart {
+    float: none;
+    margin: auto;
+    position: static;
+  }
+  .CartTitle {
+    border-bottom: none;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+  }
+  .NumberOfFood {
+    text-align: center;
+    font-size: 20px;
+  }
+  tbody {
+    border-left: 1px solid $color_a61d17;
+    @include MediaQuery(S) {
+      @include padding(0 15px);
+      width: 100%
+    }
+  }
+  thead {
+    border: 3px solid $color_a61d17;
+  }
+  thead th, tbody td {
+    @include padding(10px 15px);
+  }
+  thead th {
+    @include padding(15px);
+  }
+  tbody {
+    border-bottom: 1px solid $color_a61d17;
+    td:first-child {
+      border-right: 1px solid $color_a61d17;
+    }
+  }
+  .NumberOfFood i {
+    font-size: 22px;
+    position: relative;
+    &:hover:before {
+      @include Before;
+      @include FourSidesBefore;
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+  thead th * {
+    font-size: 20px;
+  }
+
+  .btn-twentythreeParent {
+    text-align: center !important;
+
+  }
+
+}
+
+.CartPage .BtnSParent .btn-twentythree span, .CartPage .TitleGroupFood {
+  font-size: 18px;
+}
+
+.SendSpecs {
+  width: auto;
+  margin: 20px -30px 0;
+  @include MediaQuery(S) {
+    margin-top: 0
+  }
+}
+
+.NumberOfFood {
+  i {
+    font-size: 12px;
+    padding: 3px;
+    color: #fff;
+    cursor: pointer;
+    @include MediaQuery(M) {
+      font-size: 22px;
+    }
+  }
+  span {
+    width: 20px;
+    text-align: center;
+    overflow: hidden;
+    @include MediaQuery(M) {
+      font-size: 22px;
+      width: 32px;
+    }
+  }
+}
+
+.Add {
+  background-color: $color_5db943;
+  &:hover {
+    background-color: $color_517746;
+  }
+
+}
+
+.Remove {
+  background-color: $color_a61d17;
+
+  &:hover {
+    background-color: $color_6b110d;
+  }
+}
+
+.FooterCart .Price {
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+}
+
+.Cart {
+  .FooterCart {
+    .BtnSParent {
+      .btn-twentythreeParent {
+        margin: 0;
+        width: 50%;
+        &:first-child {
+          text-align: right;
+        }
+        &:last-child {
+          text-align: left;
+        }
+        a {
+          float: none;
+          display: inline-block;
+        }
+      }
+    }
+    .Price {
+      margin-top: 20px
+    }
+  }
+}
+
+.BtnS {
+  border: 1px solid $color_a61d17;
+  border-radius: 10px;
+  padding: 2px 5px;
+  font-size: 14px;
+  background-color: $colorWhite
+}
+
+.BtnSParent {
+  margin-top: 10px
+}
+
+.BtnSParent .btn-twentythreeParent {
+  padding: 0;
+  margin: 0 3px
+}
+
+.BtnSParent .btn-twentythree {
+  padding: 5px 0
+}
+
+.BtnSParent .btn-twentythree span {
+  font-size: 12px;
+  float: right
+}
+
+footer {
+  background-color: $color_272727;
+  color: $colorWhite;
+  @include padding(35px);
+  @include MediaQuery(S) {
+    @include padding(35px 12px)
+  }
+}
+
+.Creator {
+  text-align: center;
+  font-size: 25px;
+  background-color: $color_141414;
+  color: $colorWhite;
+  @include padding(10px);
+  margin-bottom: 500px
+}
+
+.Creator * {
+  line-height: 2
+}
+
+.SocialNetWork {
+  @include MediaQuery(M) {
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+.SocialNetWork .Social {
+  margin-top: 15px
+}
+
+.SocialNetWork .Social li a {
+  float: right;
+  padding-top: 2px;
+  background-color: $color_a61d17;
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+  text-align: center;
+  border-radius: 100%
+}
+
+.ContactUs form, .ContactUs form * {
+  text-align: right
+}
+
+.SocialNetWork .Social li a:before {
+  color: #fff;
+  font-size: 10px
+}
+
+.SocialNetWork .Social li a:hover {
+  background-color: $color_cd231b;
+}
+
+.SocialNetWork .Logo {
+  margin-bottom: 10px
+}
+
+.Secur {
+  height: 190px;
+  width: 170px;
+  @include MediaQuery(M) {
+    height: 163px;
+    width: 100%
+  }
+  @include MediaQuery(S) {
+    margin: 20px auto 0;
+    float: none;
+    height: 163px;
+    width: 160px
+  }
+}
+
+.ContactUs {
+  height: 500px;
+  background-color: $color_a61d17;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.ContactUs:before {
+  @include Before;
+  @include FourSidesBefore;
+  background-color: rgba(0, 0, 0, .55);
+}
+
+.ContactUs form {
+  width: 480px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  @include MediaQuery(S) {
+    width: 100%;
+  }
+}
+
+.ContactUs form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.Call a:before, .LoginSignUpPage .row, .TitleLR {
+  text-align: center
+}
+
+.ContactUs form .ContactUsTitle {
+  text-align: center;
+  font-size: 35px;
+  color: $colorWhite;
+  margin-bottom: 20px;
+}
+
+.Call a:before, .Login .input-five .Focusing {
+  font-size: 13px
+}
+
+.Call {
+  margin-bottom: 5px
+}
+
+.Call li {
+  width: 100%;
+  margin: 5px 0;
+  a {
+    color: $colorWhite;
+    &:before {
+      float: right;
+      width: 18px;
+      height: 18px;
+      margin-left: 5px
+    }
+    &:hover:before {
+      color: $color_a61d17
+    }
+  }
+}
+
+.TitleLR {
+  border-bottom: 2px solid $color_a61d17;
+  margin: 20px 40px;
+  padding-bottom: 15px;
+}
+
+.LoginSignUpPage {
+  background-image: url(../image/bg5.jpg);
+}
+
+.Login {
+  float: none;
+  @include MediaQuery(S) {
+    @include padding(0);
+  }
+  > div {
+    border: 2px solid $color_a61d17;
+    border-radius: 5px
+  }
+  .input-five {
+    margin: 15px 0;
+    position: relative
+  }
+}
+
+.LoginContent.Login .btn-twentythreeParent {
+  margin-top: 49px;
+  @include MediaQuery(S) {
+    margin-bottom: 25px;
+  }
+}
+
+.Login .btn-twentythreeParent {
+  margin: 5px 0 20px
+}
+
+.SocialLogin {
+  > div {
+    border-radius: 35px;
+    overflow: hidden
+  }
+  a {
+    @include padding(0);
+  }
+}
+
+.FaceBook {
+  > div {
+    background-color: $color_3B5998;
+    color: $colorWhite;
+    @include padding(0);
+    &:hover {
+      color: $colorWhite;
+      background-color: $color_314278;
+    }
+    span, i:before {
+      float: left;
+      @include padding(10px);
+    }
+    i:before {
+      width: 34px;
+      @include padding(10px 12px);
+      border-right: 1px solid $colorWhite
+    }
+  }
+}
+
+.GooglePlus {
+  > div {
+    background-color: $color_d34836;
+    color: $colorWhite;
+    @include padding(0);
+    &:hover {
+      color: $colorWhite;
+      background-color: $color_993728
+    }
+    i:before {
+      border-right: 1px solid $colorWhite;
+      width: 34px;
+      font-size: 10px;
+      height: 40px;
+      @include padding(12px 4px);
+    }
+    i:before, span {
+      float: left;
+      @include padding(10px);
+    }
+  }
+}
+
+.Confirmation {
+  margin: 22px 0
+}
+
+.ForgetPass {
+  text-align: right;
+}
+
+.Login .input-five small {
+  position: absolute;
+  top: 50%;
+  font-size: 18px;
+  color: $color_a6a6a6;
+  right: 10px;
+}
+
+.Login .input-five input[type=text] ~ small:after {
+  content: "\F106"
+}
+
+.Login .input-five input[type=password] ~ small:after {
+  content: "\F107"
+}
+
+.Login .input-five input[type=email] ~ small:after {
+  content: "\F109"
+}
+
+.Login .input-five .RePassword ~ small:after {
+  content: "\F114" !important
+}
+
+.Login .input-five small:after {
+  z-index: 1;
+  width: 0;
+  overflow: hidden;
+  color: $color_a61d17;
+  position: absolute;
+  height: 100%;
+  right: 0;
+  @include transition(all 1s ease);
+}
+
+.Login .input-five .Focusing {
+  @include padding(22px 30px);
+}
+
+.Icon-RePassword:after, .Icon-RePassword:before {
+  font-size: 22px
+}
+
+.ShopIconParent * {
+  color: $colorWhite;
+}
+
+.ShopIconParent .Icons:before {
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+.ShopIconParent .Icons:hover:before {
+  color: $color_a61d17
+}
+
+.LoginIcon i:before {
+  font-size: 28px
+}
+
+.ShopIconParent {
+  position: relative;
+}
+
+.ShopIconParent span {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  background-color: $color_a61d17;
+  color: #fff;
+  width: 11px;
+  height: 13px;
+  text-align: center;
+  font-size: 10px;
+  border-radius: 100%;
+  padding-top: 1px;
+}
+
+.headerLanguage {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  @include padding(15px 0);
+}
+
+.headerLanguage h3 {
+  @include padding(10px 0);
+  color: $colorWhite;
+  margin: 0;
+}
+
+.headerLanguage .Logo {
+  margin: auto;
+  display: block;
+}
+
+.BodyLanguagePage > a {
+  width: 50%;
+  height: 524px;
+  background-position: 0 0;
+  background-size: 100%;
+  @include transition(all 2s ease);
+  float: right;
+  position: relative;
+  cursor: pointer;
+
+  @include MediaQuery(S) {
+    background-position: 50% 0;
+    background-size: cover;
+  }
+}
+
+.BodyLanguagePage > a:before {
+  @include Before;
+  @include FourSidesBefore;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.BodyLanguagePage > a:hover {
+  background-position: 0 100%;
+  @include transition(all 4s ease);
+  @include MediaQuery(S) {
+    background-position: 50% 100%;
+    transition: all 4s ease;
+  }
+}
+.BodyLanguagePage > a span {
+  position: absolute;
+  top: 50%;
+  @include transform(translate(0, -50%));
+  @include padding(20px);
+  background-color: $colorWhite;
+  color: $color_a61d17;
+  margin: auto 106px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  @include MediaQuery(S) {
+    margin: auto 10px;
+  }
+}
+
+.BodyLanguagePage > a:hover span {
+  background-color: $color_a61d17;
+  color: $colorWhite;
+}
+
+textarea {
+  @include transition(all 0s !important);
+}
+
+@include MediaQuery(M) {
+  .Social li, .SocialNetWork .Logo, .SocialNetWork .Social li a {
+    display: inline-block;
+    float: none;
+  }
+}
+
+@include MediaQuery(S) {
+  .Grouping, .Slider {
+    padding: 0
+  }
+  .Slider ul li > div, .TextItem {
+    position: relative
+  }
+  .Slider ul li > div {
+    background-color: $color_f3f5f3;
+  }
+  .CartPage table thead {
+    display: none;
+  }
+
+  .CartPage table tr td, .CartPage tbody, .CartPage tbody tr {
+    display: inline-block;
+  }
+
+  .CartPage table tr .col-xs-6 {
+    float: right;
+  }
+  .CartPage tbody tr {
+    width: 100%;
+    border-bottom: 1px solid $color_a61d17;
+  }
+
+  .CartPage tbody td.NumberOfFoodParent {
+    @include padding(10px 0);
+  }
+
+  .CartPage .FooterCart .Price > div {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px
+  }
+  .CartPage table tr .TitleGroupFood span {
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%
+  }
+
+  .CartPage tbody, .CartPage tbody td, .CartPage tbody td:first-child {
+    border: none
+  }
+
+  .PriceFoodTable, footer h3 {
+    text-align: center
+  }
+}
+
+@include MediaQuery(xs) {
+  .LoginSignUpPage .main {
+    @include padding(20px 0);
+  }
+
+  .LoginSignUpPage.main .row {
+    @include padding(0);
+  }
+
+  .SocialNetWork .Social li a {
+    margin: 0
+  }
+}

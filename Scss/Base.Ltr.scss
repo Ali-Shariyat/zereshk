@@ -1,0 +1,114 @@
+@import "variables";
+@import "Mixins";
+
+.Call li, .ContactUs form, .ContactUs form *, .GroupingTitle, .Cart li > span {
+  text-align: left;
+}
+
+.SocialNetWork .Social li a {
+  float: left;
+}
+
+.Creator * {
+  text-align: center;
+}
+
+.Cart .FooterCart .BtnSParent .btn-twentythreeParent:last-child {
+  text-align: right;
+}
+
+.TextItem span {
+  font-size: 13px;
+}
+
+.Cart .FooterCart .BtnSParent .btn-twentythreeParent:first-child {
+  text-align: left;
+}
+
+.GroupingTitle:before {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.LoginSignUp a span:first-child {
+  border-right: 2px solid $colorWhite;
+  border-left: none;
+}
+
+.LoginSignUp {
+  left: auto;
+  right: 20px;
+}
+
+.CartTitle, .MainHeader {
+  padding-right: 20px;
+  padding-left: 0;
+}
+
+.Call {
+  a:before {
+    float: left;
+    margin-right: 5px;
+    margin-left: 0;
+  }
+  @include MediaQuery(S) {
+    li, li > span {
+
+      text-align: center;
+    }
+    ~ h4 {
+      text-align: center;
+    }
+  }
+}
+
+@include MediaQuery(S) {
+  .ContactUs form, .ContactUs form * {
+    text-align: center;
+  }
+
+}
+
+.ForgetPass {
+  text-align: left;
+}
+
+.Login .input-five small {
+  left: 10px;
+  right: auto;
+}
+
+.Login .input-five small:after {
+  right: auto;
+  left: 0;
+}
+
+.GooglePlus i:before {
+  @include padding(23px 8px);
+}
+
+.CartPage {
+  tbody {
+    td {
+      &:first-child {
+        border-right: none;
+      }
+      &:last-child {
+        border-right: 1px solid $color_a61d17;
+        @include MediaQuery(S) {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+
+.ShopIconParent .Icons:before {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.ShopIconParent span {
+  left: 8px;
+  right: auto;
+}
